@@ -1,0 +1,28 @@
+
+.header{
+    background-color: #000;
+}
+.main-upload{
+    color: #000;
+    /* height: 800px; */
+    position: relative;
+    margin: 140px 180px 20px;
+    min-height: 800px; 
+    width: auto;
+    border:groove white ;
+    border-radius: 5px;
+    /* background: rgb(215, 16, 16); */
+}
+
+.form-upload{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.title{
+    font-style: italic;
+    color: coral;
+    text-align: center;
+    text-shadow: 2px 2px #74c4d4;
+    margin-top: 28px;
+  }

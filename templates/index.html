@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Trang chủ</title>
+        <!-- Custom fonts for this template-->
+        <link href="{{ url_for('static',filename='./assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+        <link
+            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+            rel="stylesheet">
+
+        <!-- Custom styles for this template-->
+        <link href="{{ url_for('static',filename='./assets/css/style.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- bootstrap core css -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" />
+
+        <!-- Thu vien icon fontawesome 6.1 -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    </head>
+    <body>
+        <div class="header">
+            <div class="logo">
+<!--                 <img src="{{ url_for('static',filename='./assets/image/logo.png') }}" alt="">-->
+            </div>
+            <ul id="nav">
+                <li><a href="{{ url_for('index') }}">Trang chủ</a></li>
+                <li><a href="{{ url_for('video') }}">Video</a></li>
+                <li><a href="{{ url_for('about') }}">Liên hệ</a></li>
+            </ul>
+            <div class="avatar">
+
+
+<!--                <?php-->
+<!--                -->
+
+<!--                if(isset($_SESSION['NAME'])==false){-->
+<!--                    // header("location:login.php");-->
+<!--                    // exit();-->
+<!--                    echo "<p> Vui long dang nhap "  ;-->
+
+<!--                }-->
+<!--                else {echo "<p>Xin chào " .$_SESSION['NAME']. "</p>";}-->
+<!--                ?>-->
+            </div>
+        </div>
+        <div class="main row">
+            <div class="content col-6">
+                <div class="text">
+                    <p>ĐÁNH GIÁ ĐỘ CHÍNH XÁC ĐỘNG TÁC BÀI QUYỀN 1 - TAEKWONDO</p>
+                </div>
+                <p class="account">
+                    {% if(session['user_id'] == NONE): %}
+                    <button type="button" class="btn btn-sign"><a href="{{ url_for('register') }}">Đăng ký</a></button>
+                    <button type="button" class="btn btn-log"><a href="{{ url_for('login') }}">Đăng nhập</a></button>
+
+                    {% endif %}
+
+                    {% if(session['user_id'] != NONE): %}
+                    <button type="button" class="btn btn-log"><a href="{{ url_for('logout') }}">Đăng xuất</a></button>
+                    {% endif %}
+
+                </p>       
+            </div>
+            <div class="col-6" style="left:500px;">
+<!--                <iframe src="{{ url_for('static',filename='./assets/logo.spline') }}" frameborder='0' width='50%' height='50%'></iframe>-->
+            </div>
+<!--            <button class="btn btn-logout" type="button"><a href="logout.php">LOG OUT</a></button>-->
+        </div>        
+        <div class="footer  bg-dark bg-gradient">
+            <div class="container">
+                <div class="row">
+                    <div class="col info_detail">
+                        <h4>
+                            Mạng xã hội
+                        </h4>
+                        <div class="social_box">
+                            <a href="">
+                            <!-- <i class="fa fa-facebook" aria-hidden="true"></i> -->
+                            <i class="fa-brands fa-facebook"></i>
+                            </a>
+                            <a href="">
+                            <!-- <i class="fa fa-twitter" aria-hidden="true"></i> -->
+                            <i class="fa-brands fa-twitter"></i>
+                            </a>
+                            <a href="">
+                            <!-- <i class="fa fa-linkedin" aria-hidden="true"></i> -->
+                            <i class="fa-brands fa-linkedin"></i>
+                            </a>
+                            <a href="">
+                            <!-- <i class="fa fa-instagram" aria-hidden="true"></i> -->
+                            <i class="fa-brands fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col contact_nav">                    
+                        <h4>
+                            Liên hệ với chúng tôi
+                        </h4>
+                        <i class="fa-solid fa-location-dot"></i>          
+                        <span>
+                            55 đường 3/2, Quận Ninh Kiều, TP. Cần Thơ
+                        </span>
+                        <br>
+                        <i class="fa-solid fa-phone"></i>
+                        <span>
+                            Số điện thoại : +01 123455678990
+                        </span>
+                        <br>
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>
+                            Email : cit@gmail.com
+                        </span>
+                        <br>
+                    </div>
+                </div>            
+            </div>
+        </div>   
+    </body>
+</html>

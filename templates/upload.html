@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Upload Video</title>
+        <!-- Custom fonts for this template-->
+        <link href="{{ url_for('static',filename='./assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+        <link
+            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+            rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Custom styles for this template-->
+        <link href="{{ url_for('static',filename='./assets/css/style.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='./assets/css/style_upload_video.css') }}">
+        
+        <!-- bootstrap core css -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" />
+
+        <!-- Thu vien icon fontawesome 6.1 -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+        $(document).ready(function(){
+
+          $("#btn1").click(function(){
+               $("form").append("<h2>Hệ thống đang xử lý...</h2>");
+          });
+        });
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <div class="logo">
+                <!-- <img src="./assets/image/logo.png" alt=""> -->
+            </div>
+            <ul id="nav">
+                <li><a href="{{ url_for('index') }}">Trang chủ</a></li>
+                <li><a href="{{ url_for('video') }}">Video</a></li>
+                <li><a href="{{ url_for('about') }}">Liên hệ</a></li>
+            </ul>
+            <div class="avatar">
+
+                {% if(session['user_id'] == NONE): %}
+                    redirect(url_for('login'))
+
+                {% endif %}
+
+                {% if(session['user_id'] != NONE): %}
+                <p> Xin chào {% print(session['user_name']) %}</p>
+                {% endif %}
+
+<!--                <?php-->
+<!--                -->
+
+<!--                if(isset($_SESSION['NAME'])==false){-->
+<!--                    header("location:login.php");-->
+<!--                    exit();-->
+<!--                    echo "<p> Vui long dang nhap "  ;-->
+
+<!--                }-->
+<!--                else {echo "<p>Xin chào " .$_SESSION['NAME']. "</p>";}-->
+<!--                ?>-->
+            </div>
+        </div>
+        <div class="container main-upload">
+        <h3 class="title">UPLOAD VIDEO</h3>
+            {%- for category, message in get_flashed_messages(with_categories = true) %}
+            <div class = "alert alert-primary">
+                {{ message }}
+            </div>
+            {%- endfor %}
+            <div class="form-upload">
+                <form id="upload" method="POST" action="{{ url_for('upload') }}" enctype='multipart/form-data'>
+                    <input type='file' class="mt-4" name="file" />
+                    <br>
+                    <button id="btn1" class="btn btn-primary mt-4" type="submit" name="upload" value='up' >Upload</button>
+                </form>
+            </div>
+            <?php require 'view.php';?>
+        </div>
+        <div class="footer  bg-dark bg-gradient">
+            <div class="container">
+                <div class="row">
+                    <div class="col info_detail">
+                        <h4>
+                            Mạng xã hội
+                        </h4>
+                        <div class="social_box">
+                            <a href="">
+                            <!-- <i class="fa fa-facebook" aria-hidden="true"></i> -->
+                            <i class="fa-brands fa-facebook"></i>
+                            </a>
+                            <a href="">
+                            <!-- <i class="fa fa-twitter" aria-hidden="true"></i> -->
+                            <i class="fa-brands fa-twitter"></i>
+                            </a>
+                            <a href="">
+                            <!-- <i class="fa fa-linkedin" aria-hidden="true"></i> -->
+                            <i class="fa-brands fa-linkedin"></i>
+                            </a>
+                            <a href="">
+                            <!-- <i class="fa fa-instagram" aria-hidden="true"></i> -->
+                            <i class="fa-brands fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col contact_nav">                    
+                        <h4>
+                            Liên hệ với chúng tôi
+                        </h4>
+                        <i class="fa-solid fa-location-dot"></i>          
+                        <span>
+                            55 đường 3/2, Quận Ninh Kiều, TP. Cần Thơ
+                        </span>
+                        <br>
+                        <i class="fa-solid fa-phone"></i>
+                        <span>
+                            Số điện thoại : +01 123455678990
+                        </span>
+                        <br>
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>
+                            Email : cit@gmail.com
+                        </span>
+                        <br>
+                    </div>
+                </div>            
+            </div>
+        </div>
+
+
+        <script type="text/javascript">
+		$(document).ready(function(){
+			$("#upload").validate({
+				rules: {
+					name: "required",
+					file: "required",
+                    email: {required: true, email: true},
+					pass: {required: true, minlength: 3},
+					cpass: {required: true, minlength: 3, equalTo: "#pass"}
+				},
+				messages: {
+                    username: "Bạn chưa nhập vào tên của bạn",
+					email: "Hộp thư điện tử không hợp lệ",
+					file: "Vui lòng điền file đầy đủ",
+					password: {
+						required: "Bạn chưa nhập mật khẩu",
+						minlength: "Mật khẩu phải có ít nhất 3 ký tự"
+					},
+					cpass: {
+						required: "Bạn chưa nhập mật khẩu",
+						minlength: "Mật khẩu phải có ít nhất 3 ký tự",
+						equalTo: "Mật khẩu không khớp"
+					},
+                    image: {
+                        required: "Chưa chọn ảnh đại diện"
+                    }
+				},
+				errorElement: "div",
+				errorPlacement: function(error, element) {
+					error.addClass("invalid-feedback");
+					error.insertBefore(element);
+				},
+				highlight: function(element, errorClass, validClass) {
+					$(element).addClass("is-invalid").removeClass("is-valid");
+				},
+				unhighlight: function(element, errorClass, validClass) {
+					$(element).addClass("is-valid").removeClass("is-invalid");
+				}
+			});
+		});
+	</script>
+
+    </body>
+</html>
+

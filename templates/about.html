@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Trang chủ</title>
+        <!-- Custom fonts for this template-->
+        <link href="./assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link
+            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+            rel="stylesheet">
+
+        <!-- Custom styles for this template-->
+        <link href="{{ url_for('static',filename='./assets/css/style_2.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- bootstrap core css -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" />
+
+        <!-- Thu vien icon fontawesome 6.1 -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    </head>
+    <body>
+        <div class="d-flex row header bg-dark"  class="">
+            <div class="logo">
+<!--                 <img src="./assets/image/logo.png" alt="">-->
+            </div>
+            <ul id="nav" class="text-center">
+                <li><a href="{{ url_for('index') }}">Trang chủ</a></li>
+                <li><a href="{{ url_for('video') }}">Video</a></li>
+                <li><a href="{{ url_for('about') }}">Liên hệ</a></li>
+            </ul>
+        </div>
+        <div class="row my-4">
+            <div class="offset-lg-1 col-lg-10 col-12">
+                <div class="row ">
+                  <div class="col-md-5">
+                    <!-- text -->
+                    <div class="d-flex border-bottom mb-6 py-1 ">
+                        <!-- img -->
+                        <img src="{{ url_for('static',filename='./assets/img/ha.jpg') }}" alt="" class="rounded-circle avatar-lg" width="22%">
+                        <div class="ms-5" style="margin-top: 1rem;">
+
+                        <!-- content -->
+                            <p class="small"> 
+
+                                <span class="text-primary fw-bold">Hoàng Thị Thanh Hà</span>
+                            </p>
+                        <!-- rating -->
+                            <p>Chủ nhiệm</p>
+                        </div>
+                    </div>
+
+                    
+                    <div class="d-flex border-bottom mb-6 py-1 ">
+                        <!-- img -->
+                        <img src="{{ url_for('static',filename='./assets/img/chau.jpg') }}" alt="" class="rounded-circle avatar-lg" width="22%">
+                        <div class="ms-5" style="margin-top: 1rem;">
+                            <h6 class="mb-1">
+
+                            </h6>
+                        <!-- content -->
+                            <p class="small"> 
+
+                                <span class="text-primary fw-bold">Hà Ngọc Châu</span>
+                            </p>
+                        <!-- rating -->
+                            <p>Thư ký </p>
+                        </div>
+                    </div>
+
+                    
+                    <div class="d-flex border-bottom mb-6 py-1 ">
+                        <!-- img -->
+                        <img src="{{ url_for('static',filename='./assets/img/dat.jpg') }}" alt="" class="rounded-circle avatar-lg" width="22%">
+                        <div class="ms-5" style="margin-top: 1rem;">
+                            <h6 class="mb-1">
+
+                            </h6>
+                        <!-- content -->
+                            <p class="small"> 
+
+                                <span class="text-primary fw-bold">Nguyễn Tiến Đạt</span>
+                            </p>
+                        <!-- rating -->
+                            <p>Thành viên</p>
+                        </div>
+                    </div>
+
+                    
+                    <div class="d-flex border-bottom mb-6 py-1 ">
+                        <!-- img -->
+                        <img src="{{ url_for('static',filename='./assets/img/truong_1.jpg') }}" alt="" class="rounded-circle avatar-lg" width="22%">
+                        <div class="ms-5" style="margin-top: 1rem;">
+                            <h6 class="mb-1">
+
+                            </h6>
+                        <!-- content -->
+                            <p class="small"> 
+
+                                <span class="text-primary fw-bold">Nguyễn Nhật Trường</span>
+                            </p>
+                        <!-- rating -->
+                            <p>Thành viên</p>
+                        </div>
+                    </div>
+
+                    
+                    <div class="d-flex border-bottom mb-6 py-1 ">
+                        <!-- img -->
+                        <img src="{{ url_for('static',filename='./assets/img/tuyet_1.jpg') }}" alt="" class="rounded-circle avatar-lg" width="22%">
+                        <div class="ms-5" style="margin-top: 1rem;">
+                            <h6 class="mb-1">
+
+                            </h6>
+                        <!-- content -->
+                            <p class="small"> 
+
+                                <span class="text-primary fw-bold">Huỳnh Ngọc Tuyết</span>
+                            </p>
+                        <!-- rating -->
+                            <p>Thành viên</p>
+                        </div>
+                    </div>
+        
+                  </div>
+                  <!-- col -->
+                  <div class="col-md-5">
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2137.609230794063!2d105.77199879368621!3d10.031207650625106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31a0895a51d60719%3A0x9d76b0035f6d53d0!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBD4bqnbiBUaMah!5e0!3m2!1svi!2s!4v1669963288768!5m2!1svi!2s" width="700" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                  </div>
+        
+                </div>
+              </div>
+        
+        </div>        
+        <div class="footer  bg-dark bg-gradient">
+            <div class="container">
+                <div class="row">
+                    <div class="col info_detail">
+                        <h4>
+                            Mạng xã hội
+                        </h4>
+                        <div class="social_box">
+                            <a href="">
+                            <!-- <i class="fa fa-facebook" aria-hidden="true"></i> -->
+                            <i class="fa-brands fa-facebook"></i>
+                            </a>
+                            <a href="">
+                            <!-- <i class="fa fa-twitter" aria-hidden="true"></i> -->
+                            <i class="fa-brands fa-twitter"></i>
+                            </a>
+                            <a href="">
+                            <!-- <i class="fa fa-linkedin" aria-hidden="true"></i> -->
+                            <i class="fa-brands fa-linkedin"></i>
+                            </a>
+                            <a href="">
+                            <!-- <i class="fa fa-instagram" aria-hidden="true"></i> -->
+                            <i class="fa-brands fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col contact_nav">                    
+                        <h4>
+                            Liên hệ với chúng tôi
+                        </h4>
+                        <i class="fa-solid fa-location-dot"></i>          
+                        <span>
+                            Khu 2, Đ. 3/2, P. Xuân Khánh, Q. Ninh Kiều, Tp. Cần Thơ
+                        </span>
+                        <br>
+                        <i class="fa-solid fa-phone"></i>
+                        <span>
+                            Số điện thoại : +84 949020161
+                        </span>
+                        <br>
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>
+                            Email : nthai.cit@ctu.edu.vn
+                        </span>
+                        <br>
+                    </div>
+                </div>            
+            </div>
+        </div>   
+    </body>
+</html>

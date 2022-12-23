@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>My video</title>
+        <!-- Custom fonts for this template-->
+        <link href="{{ url_for('static',filename='./assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+        <link
+            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+            rel="stylesheet">
+
+        <!-- Custom styles for this template-->
+        <link href="{{ url_for('static',filename='./assets/css/style.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="{{ url_for('static',filename='./assets/css/style_video.css') }}">
+
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        
+        <!-- bootstrap core css -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <!-- Thu vien icon fontawesome 6.1 -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+        
+
+
+    </head>
+
+    <body>
+        <div class="header">
+                <div class="logo">
+                    <!-- <img src="./assets/image/logo.png" alt=""> -->
+                </div>
+                <ul id="nav">
+                    <li><a href="{{ url_for('index') }}">Trang chủ</a></li>
+                    <li><a href="{{ url_for('video') }}">Video</a></li>
+                    <li><a href="{{ url_for('about') }}">Liên hệ</a></li>
+                </ul>
+                <div class="avatar">
+<!--                <?php-->
+<!--                -->
+
+<!--                if(isset($_SESSION['NAME'])==false){-->
+<!--                    header("location:login.php");-->
+<!--                    exit();-->
+<!--                    // echo "<p> Vui long dang nhap "  ;-->
+
+<!--                }-->
+<!--                else {echo "<p>Xin chào " .$_SESSION['NAME']. "</p>";}-->
+<!--                ?>-->
+            </div>
+        </div>
+        <div class="container main-video">
+            <h3 class="title">KHO LƯU TRỮ</h3>
+            <table class="table align-middle mb-0 bg-white">
+                <thead class="bg-light">
+                <tr>
+                    <th style="padding-left:1.7rem;">Chủ sở hữu</th>
+                    <th>Video</th>
+                    <th>Độ chính xác</th>
+                    <th>Trạng thái</th>
+                    <th>Phát</th>
+                </tr>
+                </thead>
+                <tbody>
+                {%- for videos in List_Video %}
+                <tr>
+                    <td>
+                        <div class="d-flex align-items-center">
+
+                            <div class="ms-3">
+                                <p class="fw-bold mb-1">
+                                    {{user.username}}
+                                </p>
+                                <p class="text-muted mb-0">
+                                    {{user.email}}
+                                </p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+<!--                        <p class="fw-normal mb-1">Software engineer</p>-->
+<!--                        <p class="text-muted mb-0">IT department</p>-->
+                        <p class="text-pimary mb-0">
+                            {{videos.location}}
+                        </p>
+                    </td>
+                    <td>
+                        <p class="text text-secondary">{{'%0.2f'|format(videos.result|float)}}%</p>
+                    </td>
+                    <td>
+                        <span class="badge badge-success rounded-pill d-inline">Đã nộp</span>
+                    </td>
+<!--                    <td>Senior</td>-->
+                    <td>
+                        <form action="{{ url_for('play') }}" method="post" >
+                            <input type="hidden" name="video_id" value="{{videos.id}}">
+                            <button type="submit" class="badge badge-success rounded-pill d-inline">Phát</button>
+                        </form>
+                    </td>
+                </tr>
+                {%- endfor %}
+                </tbody>
+            </table>
+        </div>
+        <button type="button" class="btn btn-upload"><a href="{{ url_for('upload') }}">UPLOAD VIDEO</a></button>
+        <button type="button" class="btn btn-upload " style="top:200px;"><a href="{{ url_for('learningTaekwondo') }}">Học bài quyền 1</a></button>
+        <div class="footer  bg-dark bg-gradient ">
+            <div class="container">
+                <div class="row">
+                    <div class="col info_detail">
+                        <h4>
+                            Mạng xã hội
+                        </h4>
+                        <div class="social_box">
+                            <a href="">
+                            <!-- <i class="fa fa-facebook" aria-hidden="true"></i> -->
+                            <i class="fa-brands fa-facebook"></i>
+                            </a>
+                            <a href="">
+                            <!-- <i class="fa fa-twitter" aria-hidden="true"></i> -->
+                            <i class="fa-brands fa-twitter"></i>
+                            </a>
+                            <a href="">
+                            <!-- <i class="fa fa-linkedin" aria-hidden="true"></i> -->
+                            <i class="fa-brands fa-linkedin"></i>
+                            </a>
+                            <a href="">
+                            <!-- <i class="fa fa-instagram" aria-hidden="true"></i> -->
+                            <i class="fa-brands fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col contact_nav">                    
+                        <h4>
+                            Liên hệ với chúng tôi
+                        </h4>
+                        <i class="fa-solid fa-location-dot"></i>          
+                        <span>
+                            55 đường 3/2, Quận Ninh Kiều, TP. Cần Thơ
+                        </span>
+                        <br>
+                        <i class="fa-solid fa-phone"></i>
+                        <span>
+                            Số điện thoại : +01 123455678990
+                        </span>
+                        <br>
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>
+                            Email : cit@gmail.com
+                        </span>
+                        <br>
+                    </div>
+                </div>            
+            </div>
+        </div>  
+    </body>
+</html>

@@ -1,0 +1,327 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>My video</title>
+    <!-- Custom fonts for this template-->
+    <link href="{{ url_for('static',filename='./assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+    <link
+            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+            rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="{{ url_for('static',filename='./assets/css/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static',filename='./assets/css/style_video.css') }}">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Thu vien icon fontawesome 6.1 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+
+
+</head>
+
+<body>
+<div class="header">
+    <div class="logo">
+        <!-- <img src="./assets/image/logo.png" alt=""> -->
+    </div>
+    <ul id="nav">
+        <li><a href="{{ url_for('index') }}">Trang chủ</a></li>
+        <li><a href="{{ url_for('video') }}">Video</a></li>
+        <li><a href="{{ url_for('about') }}">Liên hệ</a></li>
+    </ul>
+    <div class="avatar">
+        <!--                <?php-->
+        <!--                -->
+
+        <!--                if(isset($_SESSION['NAME'])==false){-->
+        <!--                    header("location:login.php");-->
+        <!--                    exit();-->
+        <!--                    // echo "<p> Vui long dang nhap "  ;-->
+
+        <!--                }-->
+        <!--                else {echo "<p>Xin chào " .$_SESSION['NAME']. "</p>";}-->
+        <!--                ?>-->
+    </div>
+</div>
+<div class="container main-video">
+    <h3 class="title">Kết quả đạt được:
+        <strong>{{'%0.2f'|format(Tmp_result|float)}}% </strong>
+    </h3>
+    <img src="{{url_for('stream')}}" class="img-fluid" style="wid" alt="">
+<!--    <div class="progress t-3" style="height: 20px;">-->
+<!--        <div class="progress-bar bg-success" role="progressbar" style="width: {{'%0.2f'|format(Tmp_result|float)}}%;" aria-valuenow="{{'%0.2f'|format(Tmp_result|float)}}" aria-valuemin="0" aria-valuemax="100">{{'%0.2f'|format(Tmp_result|float)}}%</div>-->
+<!--    </div>-->
+    <div class="row">
+        <h3 class="col-4">Nhãn dự đoán được: </h3><h4 class="col-8">{{predicted}}</h4>
+    <h3 class="col-4">Nhãn chưa dự đoán được: </h3><h4 class="col-8">{{unpredicted}}</h4>
+    </div>
+    <table class="table align-middle mb-0 bg-white">
+        <thead class="bg-light">
+        <tr>
+            <th>Tư thế</th>
+            <th>Mô tả</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+
+                    <div class="ms-3">
+                        <p class="fw-bold mb-1">Pose_1</p>
+<!--                        <p class="text-muted mb-0">john.doe@gmail.com</p>-->
+                    </div>
+                </div>
+            </td>
+            <td>Quay sang trái 90°, đưa chân trái ra ngoài thành tư thế đi bên trái thực hiện động tác chặn tay trái thấp.</td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+
+                    <div class="ms-3">
+                        <p class="fw-bold mb-1">Pose_2</p>
+                        <!--                        <p class="text-muted mb-0">john.doe@gmail.com</p>-->
+                    </div>
+                </div>
+            </td>
+            <td>Bước chân phải về phía trước thành tư thế đi bên phải và đấm bằng nắm tay phải vào phần giữa.</td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+
+                    <div class="ms-3">
+                        <p class="fw-bold mb-1">Pose_3</p>
+                        <!--                        <p class="text-muted mb-0">john.doe@gmail.com</p>-->
+                    </div>
+                </div>
+            </td>
+            <td>Quay sang phải 180°, bước bằng chân phải sang tư thế đi bên phải thực hiện động tác hạ thấp cánh tay phải.</td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+
+                    <div class="ms-3">
+                        <p class="fw-bold mb-1">Pose_4</p>
+                        <!--                        <p class="text-muted mb-0">john.doe@gmail.com</p>-->
+                    </div>
+                </div>
+            </td>
+            <td>bước lên trước bằng chân trái thành tư thế đi bên trái và đấm bằng nắm tay trái vào phần giữa.</td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+
+                    <div class="ms-3">
+                        <p class="fw-bold mb-1">Pose_5</p>
+                        <!--                        <p class="text-muted mb-0">john.doe@gmail.com</p>-->
+                    </div>
+                </div>
+            </td>
+            <td>Bước sang trái 90° bằng chân trái sang tư thế trái, thực hiện động tác chặn tay trái thấp và thực hiện một cú đấm vào phần giữa bằng nắm tay phải.</td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+
+                    <div class="ms-3">
+                        <p class="fw-bold mb-1">Pose_6</p>
+                        <!--                        <p class="text-muted mb-0">john.doe@gmail.com</p>-->
+                    </div>
+                </div>
+            </td>
+            <td>Bước sang phải 90° bằng chân phải sang tư thế đi bộ sang và thực hiện một cú chặn giữa vào bên trong bằng cánh tay trái.</td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+
+                    <div class="ms-3">
+                        <p class="fw-bold mb-1">Pose_7</p>
+                        <!--                        <p class="text-muted mb-0">john.doe@gmail.com</p>-->
+                    </div>
+                </div>
+            </td>
+            <td>Bước lên trước bằng chân trái sang tư thế đi bên trái và dùng tay phải đấm vào phần giữa.</td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+
+                    <div class="ms-3">
+                        <p class="fw-bold mb-1">Pose_8</p>
+                        <!--                        <p class="text-muted mb-0">john.doe@gmail.com</p>-->
+                    </div>
+                </div>
+            </td>
+            <td>Bước sang trái 180° bằng chân trái sang tư thế đi bên trái và thực hiện cú truy cản từ giữa vào trong bằng cánh tay phải.</td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+
+                    <div class="ms-3">
+                        <p class="fw-bold mb-1">Pose_9</p>
+                        <!--                        <p class="text-muted mb-0">john.doe@gmail.com</p>-->
+                    </div>
+                </div>
+            </td>
+            <td>Bước lên trước bằng chân phải sang tư thế đi bên phải và thực hiện cú đấm khu trung tuyến bằng nắm tay trái.</td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+
+                    <div class="ms-3">
+                        <p class="fw-bold mb-1">Pose_10</p>
+                        <!--                        <p class="text-muted mb-0">john.doe@gmail.com</p>-->
+                    </div>
+                </div>
+            </td>
+            <td>Bước sang phải 90° bằng chân phải thành tư thế thẳng về phía trước và thực hiện động tác cản phá thấp bằng cánh tay phải sau đó giữ nguyên tư thế và thực hiện cú đấm vào phần giữa bằng nắm tay trái</td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+
+                    <div class="ms-3">
+                        <p class="fw-bold mb-1">Pose_11</p>
+                        <!--                        <p class="text-muted mb-0">john.doe@gmail.com</p>-->
+                    </div>
+                </div>
+            </td>
+            <td>Bước sang trái 90° sang tư thế đi bên trái và thực hiện động tác cản phá bằng tay trái.</td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+
+                    <div class="ms-3">
+                        <p class="fw-bold mb-1">Pose_12</p>
+                        <!--                        <p class="text-muted mb-0">john.doe@gmail.com</p>-->
+                    </div>
+                </div>
+            </td>
+            <td>Giữ nguyên chân trái, thực hiện cú đá trước khu trung tuyến bằng chân phải. Bước xuống bằng chân phải vào tư thế đi bên phải và thực hiện cú đấm khu trung tuyến bằng nắm tay phải.</td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+
+                    <div class="ms-3">
+                        <p class="fw-bold mb-1">Pose_13</p>
+                        <!--                        <p class="text-muted mb-0">john.doe@gmail.com</p>-->
+                    </div>
+                </div>
+            </td>
+            <td>Bước sang phải 180° sang tư thế đi bộ bên phải và thực hiện động tác đỡ đòn bằng tay phải.</td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+
+                    <div class="ms-3">
+                        <p class="fw-bold mb-1">Pose_14</p>
+                        <!--                        <p class="text-muted mb-0">john.doe@gmail.com</p>-->
+                    </div>
+                </div>
+            </td>
+            <td>Giữ nguyên chân phải, thực hiện quả đá trước khu trung tuyến bằng chân trái sau đó bước xuống bằng chân trái sang tư thế đi bên trái và thực hiện cú đấm khu trung tuyến bằng nắm tay trái.</td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+
+                    <div class="ms-3">
+                        <p class="fw-bold mb-1">Pose_15</p>
+                        <!--                        <p class="text-muted mb-0">john.doe@gmail.com</p>-->
+                    </div>
+                </div>
+            </td>
+            <td>Bước sang phải 90° bằng chân trái và thực hiện động tác cản phá tầm thấp bằng cánh tay trái.</td>
+        </tr>
+        <tr>
+            <td>
+                <div class="d-flex align-items-center">
+
+                    <div class="ms-3">
+                        <p class="fw-bold mb-1">Pose_16</p>
+                        <!--                        <p class="text-muted mb-0">john.doe@gmail.com</p>-->
+                    </div>
+                </div>
+            </td>
+            <td>Bước chân phải xuống tư thế thẳng về phía trước và thực hiện cú đấm khu trung tuyến bằng nắm tay phải.</td>
+        </tr>
+
+
+        </tbody>
+    </table>
+
+</div>
+<button type="button" class="btn btn-upload"><a href="{{ url_for('upload') }}">UPLOAD VIDEO</a></button>
+<div class="footer  bg-dark bg-gradient ">
+    <div class="container">
+        <div class="row">
+            <div class="col info_detail">
+                <h4>
+                    Mạng xã hội
+                </h4>
+                <div class="social_box">
+                    <a href="">
+                        <!-- <i class="fa fa-facebook" aria-hidden="true"></i> -->
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="">
+                        <!-- <i class="fa fa-twitter" aria-hidden="true"></i> -->
+                        <i class="fa-brands fa-twitter"></i>
+                    </a>
+                    <a href="">
+                        <!-- <i class="fa fa-linkedin" aria-hidden="true"></i> -->
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                    <a href="">
+                        <!-- <i class="fa fa-instagram" aria-hidden="true"></i> -->
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col contact_nav">
+                <h4>
+                    Liên hệ với chúng tôi
+                </h4>
+                <i class="fa-solid fa-location-dot"></i>
+                <span>
+                            55 đường 3/2, Quận Ninh Kiều, TP. Cần Thơ
+                        </span>
+                <br>
+                <i class="fa-solid fa-phone"></i>
+                <span>
+                            Số điện thoại : +01 123455678990
+                        </span>
+                <br>
+                <i class="fa-solid fa-envelope"></i>
+                <span>
+                            Email : cit@gmail.com
+                        </span>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

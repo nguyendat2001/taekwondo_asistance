@@ -1,0 +1,165 @@
+/* reset CSS */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.main{
+    position: relative;
+    height: 880px;
+    /* height: auto; */
+    background: url(https://cdnb.artstation.com/p/assets/images/images/046/516/603/4k/ludovico-palmeri-v2-3.jpg?1645302296) no-repeat top center / cover;
+}
+.main, .header,  .footer{
+    color: #fff;
+}
+
+.header{
+    height: auto;
+    /* position: fixed; */
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    z-index: 1;
+    /* position: relative; */
+}
+
+
+.logo img{
+    width: 120px;
+    height: 100px;
+    float: left;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+#nav{
+    margin: auto;
+}
+#nav li{
+    display: inline-block;
+    padding: 20px;
+}
+
+#nav li a{ 
+    text-decoration: none;
+    font-size: 28px;
+    color: #fff;
+}
+#nav a:hover{
+    /* color: rgb(31, 179, 224); */
+   color: #e85c2d;
+   font-size: 30px;
+}
+
+.avatar{
+    line-height:100px;
+    padding-right: 20px;
+}
+
+.content{
+/* background-color: aqua; */
+position: absolute;
+font-size: 40px;
+top: 180px;
+left: 50px;
+}
+
+.content .text{
+    font-style: italic;
+    font-weight: lighter;
+}
+
+.content a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.content .account{
+    padding-top: 50px;
+}        
+         
+         
+.btn-sign {
+  background-image: linear-gradient(to right, #00ff04 0%, #6f9e81 51%, #00d2ff 100%);
+    margin: 10px;
+    height: 60px;
+    width: auto;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    /* color: white;             */
+    box-shadow: 0 0 20px #000;
+    border-radius: 20px;
+    display: block;
+    
+  }
+  
+  .btn-sign a:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #000;
+    text-decoration: none;
+    font-weight: bolder;
+  }
+ 
+          
+  .btn-log {
+    background-image: linear-gradient(to right, #870000 0%, #e85c2d 51%, #870000 100%);
+    margin: 10px;
+    height: 60px;
+    width: auto;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    /* color: white;             */
+    box-shadow: 0 0 20px #000;
+    border-radius: 20px;
+    display: block;
+  }
+
+  .btn-log a:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #000;
+    text-decoration: none;
+    font-weight: bolder;
+  }
+  
+  .footer{
+    height: auto;
+    padding-bottom: 20px;
+  }
+
+  .footer .info_detail, .footer .contact_nav{
+    padding-top: 20px;
+  }
+
+  .social_box a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 24px;
+    padding-right: 10px;
+  }
+
+  .main .btn-logout{
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  border-style: none;
+}
+
+ .main .btn-logout a{
+  color: #fff;
+  text-decoration: none;
+}
+
+.main .btn-logout:hover{
+  font-weight: bolder;
+  border-style: none;
+}
